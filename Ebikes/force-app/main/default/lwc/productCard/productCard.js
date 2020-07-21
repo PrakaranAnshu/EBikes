@@ -29,7 +29,9 @@ export default class ProductCard extends LightningElement {
         this.recordId = productId;
     }
 
-    hand
+    get noData() {
+        return !this.product.error && !this.product.data;
+    }
 
 
 

@@ -64,5 +64,10 @@
         </div>
       </div>
     </template>
+    <template if:true={noData}>
+      <c-place-holder
+        message="Select a product to see details"
+      ></c-place-holder>
+    </template>
   </lightning-card>
 </template>
