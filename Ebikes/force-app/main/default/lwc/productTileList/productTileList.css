@@ -1,0 +1,17 @@
+.slds-card {
+  background: red;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+c-product-tile {
+  min-width: 200px;
+  flex: 1;
+}
+
+c-paginator {
+  display: block;
+}
