@@ -1,0 +1,68 @@
+<template>
+  <lightning-card>
+    <template if:true={product.data}>
+      <span slot="title">{product.data.fields.Name.Value}</span>
+      <div class="slds-m-horizontal_medium">
+        <img
+          src={product.data.fields.Picture.URL__c}
+          alt="Product Picture"
+          class="product"
+        />
+        <!-- Category  -->
+        <div class="row">
+          <div>Category</div>
+          <div>{product.data.fields.Category__c.value}</div>
+        </div>
+        <!-- Level -->
+        <div class="row">
+          <div>Level</div>
+          <div>{product.data.fields.Level__c.value}</div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="row">
+          <div>Price</div>
+          <div>
+            <lightning-formatted-number
+              format-style="currency"
+              currency-code="USD"
+              value={product.data.fields.MRP__c.value}
+              class="price"
+            ></lightning-formatted-number>
+          </div>
+        </div>
+        <section>Electric Components</section>
+        <div class="row">
+          <div>Battery:</div>
+          <div>500Wh</div>
+        </div>
+        <div class="row">
+          <div>Charger:</div>
+          <div>42V4A</div>
+        </div>
+        <div class="row">
+          <div>Motor:</div>
+          <div>250 watt, 75Nm</div>
+        </div>
+        <section>Frame</section>
+        <div class="row">
+          <div>Frame:</div>
+          <div>{product.data.fields.Material__c.value}</div>
+        </div>
+        <div class="row">
+          <div>Fork:</div>
+          <div>Air Spring, ajustable rebound</div>
+        </div>
+        <section>Brakes</section>
+        <div class="row">
+          <div>Front Brakes:</div>
+          <div>Hydrolic Disc, 200mm</div>
+        </div>
+        <div class="row">
+          <div>Rear:</div>
+          <div>Hydrolic Disc, 200mm</div>
+        </div>
+      </div>
+    </template>
+  </lightning-card>
+</template>

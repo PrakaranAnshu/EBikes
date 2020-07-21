@@ -1,0 +1,78 @@
+<template>
+  <lightning-card title="Filters">
+    <div class="slds-m-horizontal_medium">
+      <!-- input the search key -->
+      <lightning-input
+        type="Search"
+        name="Search Key"
+        label="Search Key"
+        onchange={handleSearchKeyChange}
+      ></lightning-input>
+      <!-- section for slider -->
+      <section>
+        <lightning-slider
+          label="Maxium Price"
+          step="100"
+          min="0"
+          max="10000"
+          value={maxPrice}
+          onchange={handleMaxPriceChange}
+        ></lightning-slider>
+      </section>
+      <!-- Another section for more filters -->
+      <section>
+        <h1>Category</h1>
+        <!-- For the data in category -->
+        <template if:true={categories.data}>
+          <template for:each={categories.data.values} for:item="category">
+            <lightning-input
+              key={category.value}
+              label={category.label}
+              data-filters="categories"
+              data-value={category.value}
+              type="checkbox"
+              checked
+              onchange={handleCheckBoxChange}
+            ></lightning-input>
+          </template>
+        </template>
+      </section>
+      <!-- Material -->
+      <section>
+        <h1>Material</h1>
+        <!-- For the data in category -->
+        <template if:true={materials.data}>
+          <template for:each={materials.data.values} for:item="material">
+            <lightning-input
+              key={material.value}
+              label={material.label}
+              data-filters="materials"
+              data-value={material.value}
+              type="checkbox"
+              checked
+              onchange={handleCheckBoxChange}
+            ></lightning-input>
+          </template>
+        </template>
+      </section>
+      <!-- Level -->
+      <section>
+        <h1>Level</h1>
+        <!-- For the data in category -->
+        <template if:true={levels.data}>
+          <template for:each={levels.data.values} for:item="level">
+            <lightning-input
+              key={level.value}
+              label={level.label}
+              data-filters="levels"
+              data-value={level.value}
+              type="checkbox"
+              checked
+              onchange={handleCheckBoxChange}
+            ></lightning-input>
+          </template>
+        </template>
+      </section>
+    </div>
+  </lightning-card>
+</template>
