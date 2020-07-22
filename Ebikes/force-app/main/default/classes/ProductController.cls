@@ -36,7 +36,7 @@ public with sharing class ProductController {
                 maxPrice= filetrs.maxPrice;
                 criteria.add('MSRP__c <= :maxPrice');
             }
-            if(filters.categories != null){
+            if(filetrs.categories != null){
                 categories= filetrs.categories;
                 criteria.add('Category__c IN :categories');
             }
@@ -48,8 +48,8 @@ public with sharing class ProductController {
                 materials= filetrs.materials;
                 criteria.add('Material__c IN :materials');
             }
-            if(criteria.size >0){
-                whereClause= 'WHERE'+ string.json(criteria, 'AND');
+            if(criteria.size() >0){
+                whereClause= 'WHERE'+ String.join(criteria, 'AND');
             }
         }
         Integer pageSize= ProductController.PAGE_SiZE;
